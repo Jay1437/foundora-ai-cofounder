@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'inter': ['Inter', 'sans-serif'],
+				'jetbrains': ['JetBrains Mono', 'monospace'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -61,6 +65,19 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				foundora: {
+					'dark-bg': 'hsl(var(--foundora-dark-bg))',
+					'dark-card': 'hsl(var(--foundora-dark-card))',
+					'primary-start': 'hsl(var(--foundora-primary-start))',
+					'primary-end': 'hsl(var(--foundora-primary-end))',
+					'accent-start': 'hsl(var(--foundora-accent-start))',
+					'accent-end': 'hsl(var(--foundora-accent-end))',
+					'text-primary': 'hsl(var(--foundora-text-primary))',
+					'text-secondary': 'hsl(var(--foundora-text-secondary))',
+					'border': 'hsl(var(--foundora-border))',
+					'glow-purple': 'hsl(var(--foundora-glow-purple))',
+					'glow-pink': 'hsl(var(--foundora-glow-pink))',
 				}
 			},
 			borderRadius: {

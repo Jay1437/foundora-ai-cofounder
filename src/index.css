@@ -2,95 +2,254 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Foundora AI Design System - All colors MUST be HSL */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Foundora Brand Colors */
+    --foundora-dark-bg: 240 6% 6%;
+    --foundora-dark-card: 240 8% 12%;
+    --foundora-primary-start: 236 50% 73%;
+    --foundora-primary-end: 261 43% 65%;
+    --foundora-accent-start: 312 73% 77%;
+    --foundora-accent-end: 341 76% 61%;
+    --foundora-text-primary: 0 0% 100%;
+    --foundora-text-secondary: 240 5% 69%;
+    --foundora-border: 240 6% 20%;
+    --foundora-glow-purple: 236 50% 73%;
+    --foundora-glow-pink: 341 76% 61%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
+    /* Base Design System */
+    --background: var(--foundora-dark-bg);
+    --foreground: var(--foundora-text-primary);
+    --card: var(--foundora-dark-card);
+    --card-foreground: var(--foundora-text-primary);
+    --popover: var(--foundora-dark-card);
+    --popover-foreground: var(--foundora-text-primary);
+    --primary: var(--foundora-primary-start);
+    --primary-foreground: var(--foundora-text-primary);
+    --secondary: var(--foundora-dark-card);
+    --secondary-foreground: var(--foundora-text-primary);
+    --muted: var(--foundora-dark-card);
+    --muted-foreground: var(--foundora-text-secondary);
+    --accent: var(--foundora-accent-start);
+    --accent-foreground: var(--foundora-text-primary);
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
+    --destructive-foreground: var(--foundora-text-primary);
+    --border: var(--foundora-border);
+    --input: var(--foundora-border);
+    --ring: var(--foundora-primary-start);
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--foundora-primary-start)), hsl(var(--foundora-primary-end)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--foundora-accent-start)), hsl(var(--foundora-accent-end)));
+    --gradient-text: linear-gradient(135deg, hsl(var(--foundora-primary-start)), hsl(var(--foundora-primary-end)));
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Shadows and Glows */
+    --glow-purple: hsl(var(--foundora-glow-purple) / 0.3);
+    --glow-purple-intense: hsl(var(--foundora-glow-purple) / 0.6);
+    --glow-pink: hsl(var(--foundora-glow-pink) / 0.3);
+    --shadow-primary: 0 4px 20px var(--glow-purple);
+    --shadow-primary-hover: 0 8px 30px var(--glow-purple);
+    --shadow-card: 0 10px 40px hsl(var(--foundora-primary-start) / 0.2);
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Animations */
+    --transition-smooth: all 0.3s ease;
+    --transition-fast: all 0.2s ease;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+  * {
+    @apply border-border;
+  }
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply bg-background text-foreground;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+}
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+@layer components {
+  /* Foundora Component Styles */
+  .foundora-gradient-text {
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+  .foundora-btn-primary {
+    background: var(--gradient-primary);
+    color: hsl(var(--foundora-text-primary));
+    box-shadow: var(--shadow-primary);
+    transition: var(--transition-smooth);
+  }
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+  .foundora-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-primary-hover);
+  }
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+  .foundora-btn-secondary {
+    background: transparent;
+    color: hsl(var(--foundora-text-primary));
+    border: 2px solid hsl(var(--foundora-border));
+    transition: var(--transition-smooth);
+  }
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+  .foundora-btn-secondary:hover {
+    border-color: hsl(var(--foundora-primary-start));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px hsl(var(--foundora-primary-start) / 0.2);
+  }
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+  .foundora-card {
+    background: hsl(var(--foundora-dark-card));
+    border: 1px solid hsl(var(--foundora-border));
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+  }
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+  .foundora-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(var(--foundora-primary-start) / 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+
+  .foundora-card:hover::before {
+    left: 100%;
+  }
+
+  .foundora-card:hover {
+    transform: translateY(-5px);
+    border-color: hsl(var(--foundora-primary-start));
+    box-shadow: var(--shadow-card);
+  }
+
+  .foundora-nav-link {
+    color: hsl(var(--foundora-text-secondary));
+    transition: var(--transition-smooth);
+    position: relative;
+  }
+
+  .foundora-nav-link:hover {
+    color: hsl(var(--foundora-text-primary));
+  }
+
+  .foundora-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: width 0.3s ease;
+  }
+
+  .foundora-nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Background Animation */
+  .foundora-bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.1;
+  }
+
+  .foundora-bg-animation::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 300px;
+    height: 300px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    filter: blur(60px);
+    animation: foundora-float 6s ease-in-out infinite;
+  }
+
+  .foundora-bg-animation::after {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    right: 20%;
+    width: 400px;
+    height: 400px;
+    background: var(--gradient-accent);
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: foundora-float 8s ease-in-out infinite reverse;
+  }
+
+  /* Scroll Fade Animation */
+  .scroll-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+
+  .scroll-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  /* Foundora Animations */
+  @keyframes foundora-float {
+    0%, 100% { 
+      transform: translateY(0px) rotate(0deg); 
+    }
+    50% { 
+      transform: translateY(-30px) rotate(180deg); 
+    }
+  }
+
+  @keyframes foundora-glow {
+    from { 
+      box-shadow: 0 0 10px hsl(var(--foundora-primary-start) / 0.3); 
+    }
+    to { 
+      box-shadow: 0 0 20px hsl(var(--foundora-primary-start) / 0.6); 
+    }
+  }
+
+  @keyframes foundora-fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .foundora-animate-float {
+    animation: foundora-float 6s ease-in-out infinite;
+  }
+
+  .foundora-animate-glow {
+    animation: foundora-glow 2s ease-in-out infinite alternate;
+  }
+
+  .foundora-animate-fade-in-up {
+    animation: foundora-fade-in-up 1s ease;
   }
 }
 

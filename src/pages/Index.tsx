@@ -1,12 +1,26 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import BackgroundAnimation from '@/components/foundora/BackgroundAnimation';
+import Navigation from '@/components/foundora/Navigation';
+import Hero from '@/components/foundora/Hero';
+import Stats from '@/components/foundora/Stats';
+import Features from '@/components/foundora/Features';
+import Testimonials from '@/components/foundora/Testimonials';
+import CTA from '@/components/foundora/CTA';
+import Footer from '@/components/foundora/Footer';
+import { useParallax } from '@/hooks/useParallax';
 
 const Index = () => {
+  useParallax();
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-foundora-dark-bg text-foundora-text-primary overflow-x-hidden">
+      <BackgroundAnimation />
+      <Navigation />
+      <Hero />
+      <Stats />
+      <Features />
+      <Testimonials />
+      <CTA />
+      <Footer />
     </div>
   );
 };
